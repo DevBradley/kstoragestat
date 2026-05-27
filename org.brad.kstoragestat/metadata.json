@@ -1,0 +1,12 @@
+{
+    "KPlugin": {
+        "Id": "org.brad.kstoragestat",
+        "Name": "kstoragestat",
+        "Description": "shows available disk space in /home",
+        "Icon": "drive-harddisk",
+        "Category": "System Information",
+        "ServiceTypes": ["Plasma/Applet"]
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}
