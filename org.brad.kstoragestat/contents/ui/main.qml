@@ -20,9 +20,10 @@ PlasmoidItem {
             font.bold: true
         }
 
+        // Use a sensor to get the available space of the root partition
         Sensors.Sensor {
             id: diskSensor
-            sensorId: "disk/home/free" 
+            sensorId: "disk/all/free" // Standard sensor for overall free space
         }
 
         PlasmaComponents.Label {
