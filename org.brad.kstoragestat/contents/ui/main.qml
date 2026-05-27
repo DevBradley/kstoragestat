@@ -7,7 +7,6 @@ import org.kde.ksysguard.sensors as Sensors
 PlasmoidItem {
     id: root
 
-    // Set size constraints for the widget
     width: 150
     height: 50
 
@@ -16,18 +15,22 @@ PlasmoidItem {
         spacing: 5
 
         PlasmaComponents.Label {
-            text: "Free Space:"
+            text: "Home Free:"
             font.bold: true
         }
 
-        // Use a sensor to get the available space of the root partition
+        // Target the specific mount point sensor for /home
         Sensors.Sensor {
             id: diskSensor
-            sensorId: "disk/all/free" // Standard sensor for overall free space
+            // Explicitly targeting the /home mount point sensor
+            sensorId: "disk/home/free" 
+            
+            // Fallback alternative if your system nests home under root partition:
+            // sensorId: "disk/root/free" 
         }
 
         PlasmaComponents.Label {
-            text: diskSensor.formattedValue
+            text: diskSensor.formattedValue ? diskSensor.formattedValue : "Loading..."
         }
     }
 }
